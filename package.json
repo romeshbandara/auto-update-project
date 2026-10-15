@@ -1,29 +1,37 @@
 {
   "name": "auto-update-project",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "",
   "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "electron .",
-    "package":"electron-builder"
+    "package":"electron-builder -p always"
   },
   "build":{
     "publish":[{
       "provider":"github",
       "owner":"romeshbandara",
       "repo":"auto-update-project"
-    }]
+    }],
+    "win":{
+      "target":"nsis"
+    },
+    "nsis":{
+      "deleteAppDataOnUninstall":true,
+      "oneClick":false
+    }
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
   "devDependencies": {
+    "electron-builder": "^26.15.3",
     "electron": "^44.7.2"
   },
   "dependencies": {
-    "electron-builder": "^26.15.3",
+    
     "electron-log": "^5.4.4",
     "electron-updater": "^6.8.9"
   }
